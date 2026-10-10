@@ -34,7 +34,7 @@ Do exactly these five things, then stop. No other questions or setup.
 
    Always: never reveal the key; never ask the owner to run terminal commands.
    ```
-4. **Start it**: SendToAgent to the relay, priority: `The owner installed Wake on Done. Finish the setup now on your own, end to end (wake-on-done skill, references/setup.md, Relay part); pause only where setup needs the owner.` The relay's own first-run greeting may arrive first; this message puts it on track.
+4. **Start it (required, never skip)**: right after creating the relay, SendToAgent to it, priority true: `The owner installed Wake on Done. Finish the setup now on your own, end to end (wake-on-done skill, references/setup.md, Relay part); pause only where setup needs the owner.` The relay's own first-run greeting may arrive first; this message puts it on track.
 5. **Hand over** with a link to the relay's chat:
    > **Next: open [Wake on Done relay](<link>)**; it guides you from here.
 
