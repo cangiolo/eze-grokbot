@@ -113,7 +113,7 @@ Then write one fact to the owner's shared user memory (UpdateMemory, scope user,
 > **Wake on Done is ready ✓**
 > - Set up on: cloud computer ✓, <computer> ✓ (<any ✗: reason>)
 > - Bots told: <names>
-> - Try it: ask any bot "Use Codex CLI on my Mac to fix the failing tests"; it's woken when it finishes.
+> - Try it: tell any bot "Following the wake-on-done skill, start a Codex task that lists the 5 largest files in my Downloads folder"; it's woken and reports back when Codex finishes.
 > - New computer or a problem: come back here.
 
 Never store the key.
