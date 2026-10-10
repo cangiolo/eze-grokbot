@@ -80,7 +80,7 @@ Call ListMachines. One desktop: use it without asking. Several: ask once:
 Box (Shell without machineId; one install serves every bot): `scripts/install.sh --owner <your own bot id> --url '<webhook URL>'`. It installs notify-run, writes url.env (mode 600) and sends a test notice that wakes you.
 
 For each chosen computer:
-> - <computer label>: setting up… **Approve the prompts on that computer.**
+> - <computer label>: setting up… **If an approval prompt appears on that computer, please approve it.**
 
 Machine Shell with its machineId: `echo $HOME`, `mkdir -p ~/.config/webhook-relay /tmp/wake-on-done`; CopyFromBox the box's url.env to the same path there and this skill's `scripts/notify-run` and `scripts/install.sh` into `/tmp/wake-on-done/`; run `bash /tmp/wake-on-done/install.sh --owner <your own bot id>`. CopyFromBox moves bytes without showing them.
 
