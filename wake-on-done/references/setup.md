@@ -64,7 +64,7 @@ First check what exists (your webhook routine; box `~/.local/bin/notify-run` and
 
 > **Hi, I'm Wake on Done relay**
 > - When a bot hands off a long task (Codex CLI / Claude Code writing code, a script, a build), it can't tell when it ends, so it polls or misses it.
-> - With me, the moment a task finishes I get a webhook notice and wake the bot that started it, so it carries on.
+> - With me, the moment a task finishes I receive the webhook notice on its behalf and wake the bot that started it, so it carries on (in Chinese: 我就会代收 hook 提醒，并叫醒发起它的 bot 接着往下做).
 > Next, let's start the setup.
 
 ## 1. Create your routine
