@@ -1,25 +1,45 @@
 # eze-grokbot
 
-Eze 公开的 Grok Bot 配置。每个顶层文件夹是一个完整的 skill 包（SKILL.md + scripts/ + references/）。
+[中文](#中文) · [English](#english)
 
-Eze's public Grok Bot configs. Each top-level folder is a complete skill package (SKILL.md + scripts/ + references/).
+## 中文
 
-## Wake on Done
+这里放的是可以直接装进 Grok Bot 的 skill。每个文件夹是一个完整的 skill。
 
-让 Bot 交给后台的长任务（Codex CLI / Claude Code 写代码、跑脚本、构建）一结束，就自动叫醒发起它的 Bot 接着干，不用再盯着或反复检查。
-When a bot's long background task (Codex CLI / Claude Code, a script, a build) finishes, the bot that started it is woken and carries on.
+### Wake on Done
 
-**安装 / Install**：对你的主 Grok Bot 说 / tell your main Grok Bot:
+你的 Bot 把耗时很长的任务交出去后（比如让 Codex CLI 或 Claude Code 写代码、跑脚本、做构建），任务一结束，派任务的 Bot 就会被叫醒、接着往下做，不用反复去查，也不会错过。
 
-> 安装 https://github.com/eze-is/eze-grokbot/tree/main/wake-on-done 这个 skill 并帮我设置好
+**安装**：把下面这句话发给你的主 Grok Bot。
+
+> 安装 https://github.com/eze-is/eze-grokbot/tree/main/wake-on-done 这个 skill，并帮我设置好
+
+它会自己装好，然后一步步带你完成设置，大约 5 分钟。你只需要打开一个开关、粘贴一把钥匙。
+
+## English
+
+Skills you can install straight into Grok Bot. Each folder is one complete skill.
+
+### Wake on Done
+
+When your bot hands off a long task (Codex CLI or Claude Code writing code, a script, a build), it gets woken the moment the task finishes and carries on. No polling, no missed results.
+
+**Install**: send this to your main Grok Bot.
+
 > Install the skill at https://github.com/eze-is/eze-grokbot/tree/main/wake-on-done and set it up for me
 
-它会自己装好并带你完成设置，你只需要打开一个开关、粘贴一个钥匙（约 5 分钟）。
-It installs itself and walks you through setup; you only flip one switch and paste one key (~5 min).
+It installs itself and walks you through setup in about 5 minutes. You only flip one switch and paste one key.
 
-For the bot: download the whole folder into the skill library (tar keeps the scripts executable), then follow `references/setup.md`:
+---
+
+<details>
+<summary>For the bot: install command</summary>
+
+Download the whole folder into the skill library (tar keeps the scripts executable), then follow `references/setup.md`:
 
 ```bash
 curl -sL https://codeload.github.com/eze-is/eze-grokbot/tar.gz/main \
   | tar -xz -C <skill-library> --strip-components=1 eze-grokbot-main/wake-on-done
 ```
+
+</details>
