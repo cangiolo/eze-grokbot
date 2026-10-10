@@ -75,13 +75,15 @@ Pass = within ~1 min you are woken with `exit_code: 3`, `status: failed`, tail `
 ## 4. Tell the other bots
 > Step 4 of 4: Telling your other bots how to use it.
 
-Send every teammate (non-urgent): 
+You, the relay, are the messenger (not the main bot). Message every teammate yourself (SendToAgent, non-urgent), each with its own id:
 > Please install and use the wake-on-done skill for long background tasks. Your bot id is <that bot's id>; always pass it as `--owner`.
+
+Keep the list of bots you told for the summary.
 
 ## Done
 > Wake on Done is ready.
 > - Set up on: cloud computer ✓, <computer> ✓ (<any failure: reason>)
-> - Bots that know how to use it: <names>
+> - I told these bots how to use it: <names>
 > How to use it: just ask any bot for a long task, e.g. "Use Codex CLI on my Mac to fix the failing tests." It works in the background and picks up the moment it finishes; no need to check in. New computer or something not working? Come back here and tell me.
 
 Remember which machines and bots are set up; never store the key.
