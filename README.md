@@ -1,5 +1,16 @@
 # eze-grokbot
 
-Eze 公开的 Grok Bot 配置。每个顶层文件夹对应一个 Bot；`<bot>/skills/<skill-name>/` 是一个完整的 skill 包，Bot 拉取其中的文件即可安装。
+Eze 公开的 Grok Bot 配置。每个顶层文件夹是一个完整的 skill 包（SKILL.md + scripts/ + references/）。
 
-This repo holds Eze's public Grok Bot configs. Each top-level folder is one bot; `<bot>/skills/<skill-name>/` is a complete skill package that a bot can install by fetching its files.
+Eze's public Grok Bot configs. Each top-level folder is a complete skill package (SKILL.md + scripts/ + references/).
+
+## Install: wake-on-done
+
+Tell your main Grok Bot: `install the wake-on-done skill from https://github.com/eze-is/eze-grokbot/tree/main/wake-on-done`
+
+For the bot (download the whole folder into the skill library; tar keeps the scripts' executable bits):
+
+```bash
+curl -sL https://codeload.github.com/eze-is/eze-grokbot/tar.gz/main \
+  | tar -xz -C <skill-library> --strip-components=1 eze-grokbot-main/wake-on-done
+```
