@@ -5,12 +5,12 @@ You, the main bot the owner talks to, do the whole setup in this conversation. T
 ## 0. Explain what it is for
 Before checking or asking anything, tell the owner this in their language, in plain words:
 
-> Your bots often hand off tasks that take a long time, like having Codex CLI or Claude Code write code on your computer or the cloud computer, or running a script or a build. Once it's handed off, the bot can't tell when the task ends, so it checks back every so often or misses it entirely. With Wake on Done, the bot that started the task is woken the moment it finishes and carries on. It's always installed on the cloud computer, shared by all bots; on your own computers, install it on whichever ones you want bots to run tasks on.
+> Your bots often hand off tasks that take a long time, like having Codex CLI or Claude Code write code on your computer or the cloud computer, or running a script or a build. Once it's handed off, the bot can't tell when the task ends, so it checks back every so often or misses it entirely. With Wake on Done, the bot that started the task is woken the moment it finishes and carries on. I'll set it up on both the cloud computer and your computer, so bots can run tasks on either. Each computer is set up separately, so you'll see setup run once for each.
 
 ## 1. Check what exists
 - Teammates: is there already a relay bot (one whose instructions are the relay text below)? Reuse it.
 - Box: do `~/.local/bin/notify-run` and `~/.config/webhook-relay/url.env` exist? If so and a test passes, do only what's missing (adding a computer = steps 4 and 5).
-- Ask which registered computers bots should run long jobs on (e.g. the ones with Codex CLI or Claude Code installed): call ListMachines, show desktops by label (none is fine). The box is always set up.
+- Computers: by default set up the box plus every registered desktop from ListMachines (each one is set up separately, steps 4 and 5). Tell the owner which computers you will set up; skip one only if they say so.
 
 ## 2. Create the relay bot
 Create it with CreateAgent (name e.g. "Wake on Done relay") with these instructions verbatim. They contain no names or ids, so renames never break it:
