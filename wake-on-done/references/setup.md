@@ -5,7 +5,8 @@ You, the main bot the owner talks to, do the whole setup in this conversation. T
 ## 1. Check what exists
 - Teammates: is there already a relay bot (one whose instructions are the relay text below)? Reuse it.
 - Box: do `~/.local/bin/notify-run` and `~/.config/webhook-relay/url.env` exist? If so and a test passes, do only what's missing (adding a computer = steps 4 and 5).
-- Ask which registered computers run long tasks: call ListMachines, show desktops by label (none is fine). The box is always set up.
+- First explain to the owner, in plain words, before asking anything: "Wake on Done lets your bots hand long jobs to a machine, for example have Codex or Claude Code (CLI coding agents) work on your computer or on the cloud computer, and get woken the moment the job finishes. Without it, a bot either has to keep checking on the job or never learns it ended. It can be installed on the cloud computer (always, shared by all bots) and on any of your own computers where you want bots to run such jobs."
+- Ask which registered computers bots should run long jobs on (e.g. where Codex/Claude Code is installed): call ListMachines, show desktops by label (none is fine). The box is always set up.
 
 ## 2. Create the relay bot
 Create it with CreateAgent (name e.g. "Wake on Done relay") with these instructions verbatim. They contain no names or ids, so renames never break it:
