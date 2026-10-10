@@ -12,12 +12,12 @@
 
 > 安装 https://github.com/eze-is/eze-grokbot/tree/main/wake-on-done 这个 skill，并帮我设置好
 
-它会自己装好，然后一步步带你完成设置，大约 5 分钟。你只需要打开一个开关、粘贴一把钥匙。
+它会装好 skill，并创建一个助手 Bot「Wake on Done relay」，由它在自己的聊天里一步步带你完成设置（约 5 分钟）。你只需要批准一张卡片、粘贴一个地址和一把钥匙。
 
 <details>
 <summary>给 Bot 看：安装命令</summary>
 
-先读 https://raw.githubusercontent.com/eze-is/eze-grokbot/main/wake-on-done/references/setup.md ，按第 0 步先给用户发介绍；再把整个文件夹下载到 skill 库（tar 会保留脚本的可执行权限），然后按 `references/setup.md` 设置：
+先读 https://raw.githubusercontent.com/eze-is/eze-grokbot/main/wake-on-done/references/setup.md 的「Main bot part」并照做：发一条简短说明，安装整个文件夹（命令如下，tar 会保留脚本的可执行权限），创建 Wake on Done relay、让它开始，再把用户引到它的聊天。
 
 ```bash
 curl -sL https://codeload.github.com/eze-is/eze-grokbot/tar.gz/main \

@@ -12,12 +12,12 @@ When your bot hands off a long task (Codex CLI or Claude Code writing code, a sc
 
 > Install the skill at https://github.com/eze-is/eze-grokbot/tree/main/wake-on-done and set it up for me
 
-It installs itself and walks you through setup in about 5 minutes. You only flip one switch and paste one key.
+It installs the skill and creates a helper bot, Wake on Done relay, which walks you through setup in its own chat (about 5 minutes). You only approve one card and paste an address and a key.
 
 <details>
 <summary>For the bot: install command</summary>
 
-First read https://raw.githubusercontent.com/eze-is/eze-grokbot/main/wake-on-done/references/setup.md and send the owner its step 0 introduction. Then download the whole folder into the skill library (tar keeps the scripts executable), then follow `references/setup.md`:
+First read the "Main bot part" of https://raw.githubusercontent.com/eze-is/eze-grokbot/main/wake-on-done/references/setup.md and follow it: one short message, install the folder (command below; tar keeps the scripts executable), create Wake on Done relay, start it, and send the owner to its chat.
 
 ```bash
 curl -sL https://codeload.github.com/eze-is/eze-grokbot/tar.gz/main \
