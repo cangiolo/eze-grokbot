@@ -52,7 +52,7 @@ First check your memory and what exists (your webhook routine; box `~/.local/bin
 > **Hi, I'm Wake on Done relay**
 > - When a bot hands off a long task (Codex CLI / Claude Code writing code, a script, a build), it can't tell when it ends, so it polls or misses it.
 > - With me, the bot that started it is woken the moment it finishes and carries on.
-> - Your part: approve 1 card, paste 1 key. About 5 minutes.
+> Next, let's start the setup.
 
 ## 1. Create your routine
 > **Step 1/4 · Create my routine**
