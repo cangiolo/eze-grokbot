@@ -7,7 +7,7 @@ How to talk: say the lines below in the owner's language, in plain product langu
 ## 0. Introduce first, then install
 When the owner asks to install, your FIRST message (before downloading anything) introduces it and the plan. Say:
 > Wake on Done: your bots often hand off long tasks, like Codex CLI or Claude Code writing code on your computer or cloud computer, or running a script or build. Once handed off, the bot can't tell when it ends, so it checks back every so often or misses it. With Wake on Done, the bot that started it is woken the moment it finishes and carries on.
-> How setup goes: I install the skill, then create a small relay bot. You approve its routine in its chat and paste one key. Then I set up the cloud computer and your computer (each separately, so you'll see setup run once for each) and tell your other bots. About 5 minutes; your part is just those two things.
+> How setup goes: I install the skill, then create a small relay bot. You approve one card and paste its address and key. Then I set up the cloud computer and your computer (each separately, so you'll see setup run once for each) and tell your other bots. About 5 minutes; your part is approving one card and pasting two things.
 
 Then install the skill, and check what already exists (teammates: a bot whose instructions are the relay text below; box: `~/.local/bin/notify-run` and `~/.config/webhook-relay/url.env`). Skip any step already done; adding a computer later = steps 4–5 only.
 
@@ -23,12 +23,13 @@ I am a notification relay bot. I do exactly one thing: forward webhook completio
 - Never message the user, never save memories, never do anything besides forwarding, never edit my own routines.
 ```
 
-You can't create another bot's routine, so message the relay (priority) to create its own permanent routine: trigger `{ "type": "webhook" }`, prompt = the rules above. Creating it raises an approval card in the relay's chat that only the owner can click, so send the owner there right away:
+You can't create another bot's routine, so message the relay (priority) to create its own permanent routine: trigger `{ "type": "webhook" }`, prompt = the rules above. Its approval card appears in YOUR chat with the owner, and once approved the routine is already on. Say:
 > Step 1 of 5: I created a bot called "Wake on Done relay" (<link to its chat>). From now on, whenever any bot runs a long task (from the command line or anywhere else), the relay receives the "task finished" message and passes it back to the bot that started the task, so that bot can move to its next step right after the task ends.
-> It's now setting up the routine that receives these messages. Please go to its chat to approve it; that's the next step.
+> A card will pop up here asking to save its routine; please approve it.
 
-## 2. Owner action 1: turn on the routine
-> Step 2 of 5 (your part, 1 of 2): In the relay's chat, approve its routine card and make sure the routine is on. Then copy the "Webhook URL" shown for that routine and paste it here.
+## 2. Owner action 1: approve the card, then copy the URL
+After the relay confirms the routine is saved:
+> Step 2 of 5 (your part, 1 of 2): Done, it's on. Open the relay's chat, find this routine in its routines list, copy the "Webhook URL" shown there and paste it here.
 
 Wait for the URL (it's not secret). If they paste something else, say what to copy, once.
 
