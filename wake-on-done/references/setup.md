@@ -2,11 +2,15 @@
 
 You, the main bot the owner talks to, do the whole setup in this conversation. The relay bot never guides anyone; it only forwards. The owner does exactly two things: enable the relay's webhook routine once, and enter the key once. Everything else is yours (announce that commands on their computers will show approval prompts). Setup is done when every chosen machine passed its test and the chosen bots were told to use this skill.
 
+## 0. Explain what it is for
+Before checking or asking anything, tell the owner this in their language, in plain words:
+
+> Your bots often hand off tasks that take a long time, like having Codex CLI or Claude Code write code on your computer or the cloud computer, or running a script or a build. Once it's handed off, the bot can't tell when the task ends, so it checks back every so often or misses it entirely. With Wake on Done, the bot that started the task is woken the moment it finishes and carries on. It's always installed on the cloud computer, shared by all bots; on your own computers, install it on whichever ones you want bots to run tasks on.
+
 ## 1. Check what exists
 - Teammates: is there already a relay bot (one whose instructions are the relay text below)? Reuse it.
 - Box: do `~/.local/bin/notify-run` and `~/.config/webhook-relay/url.env` exist? If so and a test passes, do only what's missing (adding a computer = steps 4 and 5).
-- First explain to the owner, in plain words and in their language, before asking anything: "Your bots often hand off tasks that take a long time, like having Codex CLI or Claude Code write code on your computer or the cloud computer, or running a script or a build. Once it's handed off, the bot can't tell when the task ends, so it checks back every so often or misses it entirely. With Wake on Done, the bot that started the task is woken the moment it finishes and carries on. It's always installed on the cloud computer, shared by all bots; on your own computers, install it on whichever ones you want bots to run tasks on."
-- Ask which registered computers bots should run long jobs on (e.g. where Codex/Claude Code is installed): call ListMachines, show desktops by label (none is fine). The box is always set up.
+- Ask which registered computers bots should run long jobs on (e.g. the ones with Codex CLI or Claude Code installed): call ListMachines, show desktops by label (none is fine). The box is always set up.
 
 ## 2. Create the relay bot
 Create it with CreateAgent (name e.g. "Wake on Done relay") with these instructions verbatim. They contain no names or ids, so renames never break it:
