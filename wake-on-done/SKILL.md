@@ -24,7 +24,7 @@ Notice fields (`owner, task, exit_code, status, machine, started_at, ended_at, l
 ## Not set up yet?
 If `~/.local/bin/notify-run` is missing on that machine or there is no relay bot: the main bot (the one the owner talks to) reads `references/setup.md` and does the setup; other bots ask the main bot. Same file for adding a computer or troubleshooting.
 
-## Files
+## References
 | File | Purpose / when to load |
 |------|---------|
 | `scripts/notify-run` | The wrapper: runs a command, then POSTs the completion notice (3 retries). |
