@@ -48,11 +48,11 @@ First check what exists: your webhook routine; box `~/.local/bin/notify-run` and
 > **Hi, I'm Wake on Done relay**
 > - When a bot hands off a long task (Codex CLI / Claude Code writing code, a script, a build), it can't tell when it ends, so it polls or misses it.
 > - With me, the bot that started it is woken the moment it finishes and carries on.
-> - Your part: approve 1 card, paste 1 key. About 5 minutes. I set up the cloud computer and each of your computers separately.
+> Let's start the setup.
 
 ## 1. Create your routine
-> **Step 1/4 · Create my notification address**
-> - Approve the card that appears below.
+> **Step 1/4 · Create my routine**
+> - If an approval card appears, please approve it.
 
 Create your permanent routine: trigger `{ "type": "webhook" }`, prompt = mode 1 of your instructions. Once approved it's on; don't ask the owner to check anything. Record the webhook URL yourself from the creation result or the routine's page; never ask the owner for it.
 
