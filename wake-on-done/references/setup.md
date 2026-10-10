@@ -61,9 +61,9 @@ First check what exists (your webhook routine; box `~/.local/bin/notify-run` and
 Create your permanent routine: trigger `{ "type": "webhook" }`, prompt = the "After setup" forwarding rules plus the setup-test rule from your instructions. Once approved it's on; don't ask the owner to check anything. Record the webhook URL yourself from the creation result or the routine's page; never ask the owner for it.
 
 ## 2. Owner: paste the key
-Send a clickable link to the routine's page, together with the masked secret request (name `WEBHOOK_RELAY_KEY`):
+Write the webhook URL you recorded as a markdown link, e.g. `[Webhook URL](<webhook URL>)`: in the app it opens this routine's detail page, where the key is shown. Don't point to the routines list. Send it together with the masked secret request (name `WEBHOOK_RELAY_KEY`):
 > **Step 2/4 · Paste the key**
-> - Open [this page](<routine page link>), copy the **Webhook key** (starts with `crsr_`) into the secure box below.
+> - Click [Webhook URL](<webhook URL>), copy the **Webhook key** (starts with `crsr_`) into the secure box below.
 > - It goes straight to the cloud computer and never appears in chat.
 
 Never ask for the key in plain chat. It is never printed, echoed, put on a command line, in chat, memory or a log; it moves only as a file.
