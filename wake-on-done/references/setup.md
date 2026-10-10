@@ -4,17 +4,15 @@ You, the main bot the owner talks to, do the whole setup in this one conversatio
 
 How to talk: say the lines below in the owner's language, in plain product language. Before each step, one short progress line ("Step 2 of 5: ..."). Ask at most one thing at a time, and only when you can't decide it yourself. Never show tool names, ids, file paths or words like webhook/env var/stdin to the owner unless they ask. Setup is done when every chosen computer passed its test and the other bots were told.
 
-## 0. Explain, then start (no question)
-First check what already exists (teammates: a bot whose instructions are the relay text below; box: `~/.local/bin/notify-run` and `~/.config/webhook-relay/url.env`). Skip any step already done; adding a computer later = steps 4–5 only.
+## 0. Introduce first, then install
+When the owner asks to install, your FIRST message (before downloading anything) introduces it and the plan. Say:
+> Wake on Done: your bots often hand off long tasks, like Codex CLI or Claude Code writing code on your computer or cloud computer, or running a script or build. Once handed off, the bot can't tell when it ends, so it checks back every so often or misses it. With Wake on Done, the bot that started it is woken the moment it finishes and carries on.
+> How setup goes: I install the skill, then create a small relay bot. You approve its routine in its chat and paste one key. Then I set up the cloud computer and your computer (each separately, so you'll see setup run once for each) and tell your other bots. About 5 minutes; your part is just those two things.
 
-Say:
-> Your bots often hand off long tasks, like Codex CLI or Claude Code writing code on your computer or cloud computer, or running a script or build. Once handed off, the bot can't tell when it ends, so it checks back every so often or misses it. With Wake on Done, the bot that started it is woken the moment it finishes and carries on.
-> I'll set it up on both the cloud computer and your computer; each computer is set up separately, so you'll see setup run once for each. It takes about 5 minutes, and you only need to do two things: turn on one switch and paste one key. I'll handle the rest.
+Then install the skill, and check what already exists (teammates: a bot whose instructions are the relay text below; box: `~/.local/bin/notify-run` and `~/.config/webhook-relay/url.env`). Skip any step already done; adding a computer later = steps 4–5 only.
 
 ## 1. Create the relay bot
-> Step 1 of 5: I'm creating a small helper bot, "Wake on Done relay". Its only job is to pass "task finished" messages to the right bot. It never messages you.
-
-Create it with CreateAgent, these instructions verbatim (no names or ids, so renames never break it):
+Create it with CreateAgent, name "Wake on Done relay", these instructions verbatim (no names or ids, so renames never break it):
 
 ```
 I am a notification relay bot. I do exactly one thing: forward webhook completion notices from external programs to the bot that started the task.
@@ -25,10 +23,12 @@ I am a notification relay bot. I do exactly one thing: forward webhook completio
 - Never message the user, never save memories, never do anything besides forwarding, never edit my own routines.
 ```
 
-Then create its permanent routine with trigger `{ "type": "webhook" }` and the same rules as its prompt.
+You can't create another bot's routine, so message the relay (priority) to create its own permanent routine: trigger `{ "type": "webhook" }`, prompt = the rules above. Creating it raises an approval card in the relay's chat that only the owner can click, so send the owner there right away:
+> Step 1 of 5: I created a bot called "Wake on Done relay" (<link to its chat>). From now on, whenever any bot runs a long task (from the command line or anywhere else), the relay receives the "task finished" message and passes it back to the bot that started the task, so that bot can move to its next step right after the task ends.
+> It's now setting up the routine that receives these messages. Please go to its chat to approve it; that's the next step.
 
 ## 2. Owner action 1: turn on the routine
-> Step 2 of 5 (your part, 1 of 2): Please open this link and turn on the switch for the relay's routine: <routine link>. Then copy the "Webhook URL" shown there and paste it here.
+> Step 2 of 5 (your part, 1 of 2): In the relay's chat, approve its routine card and make sure the routine is on. Then copy the "Webhook URL" shown for that routine and paste it here.
 
 Wait for the URL (it's not secret). If they paste something else, say what to copy, once.
 

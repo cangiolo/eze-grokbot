@@ -17,7 +17,7 @@ It installs itself and walks you through setup in about 5 minutes. You only flip
 <details>
 <summary>For the bot: install command</summary>
 
-Download the whole folder into the skill library (tar keeps the scripts executable), then follow `references/setup.md`:
+First read https://raw.githubusercontent.com/eze-is/eze-grokbot/main/wake-on-done/references/setup.md and send the owner its step 0 introduction. Then download the whole folder into the skill library (tar keeps the scripts executable), then follow `references/setup.md`:
 
 ```bash
 curl -sL https://codeload.github.com/eze-is/eze-grokbot/tar.gz/main \

@@ -17,7 +17,7 @@
 <details>
 <summary>给 Bot 看：安装命令</summary>
 
-把整个文件夹下载到 skill 库（tar 会保留脚本的可执行权限），然后按 `references/setup.md` 设置：
+先读 https://raw.githubusercontent.com/eze-is/eze-grokbot/main/wake-on-done/references/setup.md ，按第 0 步先给用户发介绍；再把整个文件夹下载到 skill 库（tar 会保留脚本的可执行权限），然后按 `references/setup.md` 设置：
 
 ```bash
 curl -sL https://codeload.github.com/eze-is/eze-grokbot/tar.gz/main \
