@@ -113,7 +113,7 @@ Then write one fact to the owner's shared user memory (UpdateMemory, scope user,
 > **Wake on Done is ready ✓**
 > - Set up on: cloud computer ✓, <computer> ✓ (<any ✗: reason>)
 > - Bots told: <names>
-> - Try it: tell any bot "Following the wake-on-done skill, start a Codex CLI task on my computer / the cloud computer that creates a hello-world.txt file on the desktop, and notify me when it's done."
+> - Try it: tell any bot "Following the wake-on-done skill, start a Codex CLI task on my computer that creates hello-world.txt on the desktop, and notify me when it's done." (Works the same on the cloud computer.)
 > - New computer or a problem: come back here.
 
 Never store the key.
