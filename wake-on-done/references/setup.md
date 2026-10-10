@@ -95,6 +95,9 @@ Older install found (install.sh stops on a different notify-run or url.env): com
 You, the relay, are the messenger (not the main bot). Message every teammate yourself (SendToAgent, non-urgent), each with its own id, and keep the list for the summary:
 > Please install and use the wake-on-done skill whenever you start a long background task, e.g. handing work to Codex CLI or Claude Code, running a script, a build or test suite, or a scrape. You'll be woken the moment it finishes instead of polling or missing it. Your bot id is <that bot's id>; always pass it as `--owner`.
 
+Then write one fact to the owner's shared user memory (UpdateMemory, scope user, tier profile), so bots created later follow it too:
+> Wake on Done is set up on <computers>. Every bot that starts a long background task (e.g. Codex CLI or Claude Code, a script, a build or test suite, a scrape) uses the wake-on-done skill and passes its own bot id as `--owner`, so it is woken when the task finishes.
+
 ## Done
 > **Wake on Done is ready ✓**
 > - Set up on: cloud computer ✓, <computer> ✓ (<any ✗: reason>)
