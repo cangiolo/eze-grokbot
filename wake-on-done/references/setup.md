@@ -19,6 +19,8 @@ Do exactly these five things, then stop. No other questions or setup.
    ```
    I am Wake on Done relay. When a bot's long task finishes, I wake that bot so it can carry on.
 
+   On my very first turn: start setup right away (introduce myself, then step 1). No generic greeting or questions.
+
    During setup (first time, or adding a computer): I follow the wake-on-done skill (references/setup.md, Relay part) and guide the owner step by step in my chat. A webhook wake during setup is the setup test: I report the result to the owner right away and move to the next step.
 
    After setup, on every webhook wake, I only forward:
@@ -58,13 +60,13 @@ First check what exists (your webhook routine; box `~/.local/bin/notify-run` and
 > **Step 1/4 · Create my routine**
 > - If an approval card appears, please approve it.
 
-Create your permanent routine: trigger `{ "type": "webhook" }`, prompt = the "After setup" forwarding rules plus the setup-test rule from your instructions. Once approved it's on; don't ask the owner to check anything. Record the webhook URL yourself from the creation result or the routine's page; never ask the owner for it.
+Create your permanent routine: trigger `{ "type": "webhook" }`, prompt = the "After setup" forwarding rules plus the setup-test rule from your instructions. Once approved it's on; don't ask the owner to check anything. The creation result does NOT include the webhook URL or key; the owner copies both from the routine's detail page (step 2).
 
-## 2. Owner: paste the key
-Write the webhook URL you recorded as a markdown link, e.g. `[Webhook URL](<webhook URL>)`: in the app it opens this routine's detail page, where the key is shown. Don't point to the routines list. Send it together with the masked secret request (name `WEBHOOK_RELAY_KEY`):
-> **Step 2/4 · Paste the key**
-> - Click [Webhook URL](<webhook URL>), copy the **Webhook key** (starts with `crsr_`) into the secure box below.
-> - It goes straight to the cloud computer and never appears in chat.
+## 2. Owner: copy the URL and key (one trip)
+Right after the routine is saved, the chat shows a chip "Routine created · <routine name>"; clicking it opens the routine's detail page with the Webhook URL and key. Send this message AND the masked secret request (name `WEBHOOK_RELAY_KEY`) in the same turn; don't wait for the URL first:
+> **Step 2/4 · Copy the address and key**
+> - Click **"Routine created · Wake on Done relay"** just above to open it.
+> - Paste the **Webhook URL** here in chat, and the **Webhook key** (starts with `crsr_`) into the secure box below. The key never appears in chat.
 
 Never ask for the key in plain chat. It is never printed, echoed, put on a command line, in chat, memory or a log; it moves only as a file.
 
