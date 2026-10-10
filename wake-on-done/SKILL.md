@@ -20,7 +20,10 @@ Long task = you start it, it runs in the background on the box or a user compute
    `~/.local/bin/notify-run --owner <your bot id> --task <short-name> [--log <path>] -- <command> <args...>`
 3. Keep working; don't poll. When woken, check `exit_code`, `output_tail`, the log at `log_path` and the artifacts against "done". A failure is evidence too.
 
-Delegating to a CLI agent (Codex, Claude Code, etc.) is the most common case: run it non-interactively with stdin closed and wrap it the same way, e.g.
+Delegating to a CLI agent (Codex, Claude Code, etc.) is the most common case. Two rules, or the agent hangs forever and the notice never fires:
+- Use its one-shot mode (`codex exec`, `claude -p`), not chat mode: chat mode waits for your next message after finishing and never exits.
+- Add `</dev/null`: some CLIs still read stdin (extra input, confirmations); in the background nobody types, so they wait forever. With stdin closed they see "no input" and carry on.
+Examples:
    `notify-run --owner <id> --task codex-fix -- codex exec "<task>" </dev/null`
    `notify-run --owner <id> --task claude-fix -- claude -p "<task>" </dev/null`
 Have the agent write its result to a file you name in the prompt, and read that file when woken.
