@@ -1,11 +1,14 @@
 ---
 name: wake-on-done
 description: >-
-  Use when you start a background command that takes minutes or more and you must continue with its
-  result afterwards, so you get woken when it finishes instead of polling. Especially when you hand a task to a
-  CLI coding agent (Codex, Claude Code, Gemini CLI, etc.) and need its result back. Also use to set up Wake on Done,
-  add a computer to it, or fix it. Triggers: long task, background job, build/test suite, delegate to Codex / Claude Code, CLI agent callback, coding-agent run,
-  scraping, training, batch job, notify when done, wake me when finished, notify-run, set up Wake on Done.
+  Use when you start a background command that takes minutes or more and you
+  must continue with its result afterwards, so you get woken when it finishes
+  instead of polling. Especially when you hand a task to a CLI coding agent
+  (Codex, Claude Code, Gemini CLI, etc.) and need its result back. Also use to
+  set up Wake on Done, add a computer to it, or fix it. Triggers: long task,
+  background job, build/test suite, delegate to Codex / Claude Code, CLI agent
+  callback, coding-agent run, scraping, training, batch job, notify when done,
+  wake me when finished, notify-run, set up Wake on Done.
 ---
 # Wake on Done
 
@@ -16,10 +19,9 @@ A background process (`&`, `nohup`, a background shell) never wakes you when it 
 Long task = you start it, it runs in the background on the box or a user computer, takes minutes or more, and you need its result. Seconds-long commands, never-ending servers, and tasks waiting on a human don't count.
 
 1. Write down what "done" means.
-2. Start it on the machine where the work runs, detached, with YOUR OWN bot id. Always use exactly this shape (`nohup` + `&` + redirects); a plain `&` is killed when your remote shell command returns, taking notify-run with it, so no notice ever arrives. (On the Linux box, `nohup` is enough; on a Mac use the tmux form below.)
+2. Start it on the machine where the work runs, detached, with YOUR OWN bot id. Always use exactly this shape (`nohup` + `&` + redirects); a plain `&` is killed when your remote shell command returns, taking notify-run with it, so no notice ever arrives. This works on the Linux box and on a Mac (machine Shell); on a Mac, `nohup` was re-verified on 2026-10-14 to survive the remote shell returning, so tmux is not needed.
    `nohup ~/.local/bin/notify-run --owner <your bot id> --task <short-name> [--log <path>] -- <command> <args...> </dev/null >/dev/null 2>&1 &`
-   **On a Mac (machine Shell), nohup is NOT enough**: the remote shell kills the whole job when it returns (verified 2026-10-11). Use tmux there (`/opt/homebrew/bin/tmux`; if missing, `brew install tmux`):
-   `tmux new-session -d -s <short-name> "~/.local/bin/notify-run --owner <your bot id> --task <short-name> --log <path> -- <command> <args...> </dev/null"`
+   If a Mac job ever dies when the remote command returns, fall back to tmux (`/opt/homebrew/bin/tmux`): `tmux new-session -d -s <short-name> "~/.local/bin/notify-run --owner <your bot id> --task <short-name> --log <path> -- <command> <args...> </dev/null"`
    Check the command's flags first (e.g. `codex exec --help`): an unknown flag makes it exit at once; you'll still be woken, with the error in `output_tail`.
 3. Keep working; don't poll. When woken, check `exit_code`, `output_tail`, the log at `log_path` and the artifacts against "done". A failure is evidence too.
 
@@ -28,7 +30,6 @@ Delegating to a CLI agent (Codex, Claude Code, etc.) is the most common case. Tw
 - Add `</dev/null`: some CLIs still read stdin (extra input, confirmations); in the background nobody types, so they wait forever. With stdin closed they see "no input" and carry on.
 Examples:
    `nohup ~/.local/bin/notify-run --owner <id> --task codex-fix -- codex exec --skip-git-repo-check "<task>" </dev/null >/dev/null 2>&1 &`
-   Mac: `tmux new-session -d -s codex-fix "~/.local/bin/notify-run --owner <id> --task codex-fix --log <path> -- <codex path> exec --skip-git-repo-check '<task>' </dev/null"`
    `nohup ~/.local/bin/notify-run --owner <id> --task claude-fix -- claude -p "<task>" </dev/null >/dev/null 2>&1 &`
 `codex exec` outside a git repo exits at once unless you pass `--skip-git-repo-check`.
 Have the agent write its result to a file you name in the prompt, and read that file when woken.
