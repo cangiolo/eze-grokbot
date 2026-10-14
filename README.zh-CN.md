@@ -25,3 +25,23 @@ curl -sL https://codeload.github.com/eze-is/eze-grokbot/tar.gz/main \
 ```
 
 </details>
+
+## Wake on Turn End
+
+适用于一直开着的交互式编程 agent 会话（在 Tern 终端标签页里跑的 omp / oh-my-pi）：agent 每跑完一轮，不用退出，你的 Bot 就会被叫醒，用 `tern capture` 读结果，再用 `tern send` 发下一轮。它基于 Wake on Done（同一个 notify-run 和 relay），需要先装好 Wake on Done。
+
+**安装**：把下面这句话发给你的主 Grok Bot。
+
+> 安装 https://github.com/eze-is/eze-grokbot/tree/main/wake-on-turn-end 这个 skill，并在我的电脑上设置好
+
+<details>
+<summary>给 Bot 看：安装命令</summary>
+
+安装整个文件夹，然后在跑 omp 的那台电脑上按 `wake-on-turn-end/references/setup.md` 操作。
+
+```bash
+curl -sL https://codeload.github.com/eze-is/eze-grokbot/tar.gz/main \
+  | tar -xz -C <skill-library> --strip-components=1 eze-grokbot-main/wake-on-turn-end
+```
+
+</details>

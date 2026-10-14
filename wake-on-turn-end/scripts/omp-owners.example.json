@@ -1,0 +1,9 @@
+{
+  "bySession": {
+    "<omp-session-id>": "<bot-id-that-owns-this-session>"
+  },
+  "byCwd": {
+    "~/code/my-project": "<bot-id-for-this-project>"
+  },
+  "default": "<your-main-bot-id>"
+}

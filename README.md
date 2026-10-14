@@ -25,3 +25,23 @@ curl -sL https://codeload.github.com/eze-is/eze-grokbot/tar.gz/main \
 ```
 
 </details>
+
+## Wake on Turn End
+
+For interactive coding-agent sessions that stay open (omp / oh-my-pi in a Tern terminal pane): your bot gets woken every time the agent finishes a turn, without the agent exiting, reads the answer with `tern capture`, and sends the next turn with `tern send`. Builds on Wake on Done (same notify-run and relay), so set that up first.
+
+**Install**: send this to your main Grok Bot.
+
+> Install the skill at https://github.com/eze-is/eze-grokbot/tree/main/wake-on-turn-end and set it up on my computer
+
+<details>
+<summary>For the bot: install command</summary>
+
+Install the folder, then follow `wake-on-turn-end/references/setup.md` on the computer where omp runs.
+
+```bash
+curl -sL https://codeload.github.com/eze-is/eze-grokbot/tar.gz/main \
+  | tar -xz -C <skill-library> --strip-components=1 eze-grokbot-main/wake-on-turn-end
+```
+
+</details>
